@@ -45,7 +45,7 @@ deploy-to-oke-default:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: delete -f $WERCKER_ROOT/kubernetes-deployment.yml --ignore-not-found=true
+        command: delete -f $WERCKER_ROOT/kubernetes-deployment.yml --ignore-not-found=true -n $APP_NAMESPACE
 
     - script:
         name: wait to delete deployment
@@ -56,4 +56,4 @@ deploy-to-oke-default:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: create -f $WERCKER_ROOT/kubernetes-deployment.yml
+        command: create -f $WERCKER_ROOT/kubernetes-deployment.yml -n $APP_NAMESPACE
