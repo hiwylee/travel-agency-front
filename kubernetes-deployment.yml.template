@@ -17,7 +17,7 @@ spec:
         run: ta-front
     spec:
       containers:
-      - image: $OKE_REPOSITORY/$WERCKER_APPLICATION_NAME:$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+      - image: $OKE_REPOSITORY:$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         #imagePullPolicy: IfNotPresent 
         imagePullPolicy: Always 
         name: ta-front
@@ -27,17 +27,4 @@ spec:
       restartPolicy: Always
       imagePullSecrets:
         - name: ocirsecret
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ta-front
-spec:
-    type: LoadBalancer
-    ports:
-    - name: http
-      port: 80
-      targetPort: 8000
-      protocol: TCP
-    selector:
-      run: ta-front
+
