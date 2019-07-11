@@ -31,7 +31,7 @@ app.post('/login', function(req, res) {
   const options = {
     method: 'POST',
     // uri: 'http://ta-login.travel.svc.cluster.local:9001/login',
-    uri: 'http://localhost:9001/login',
+    uri: 'http://ta-login.svc.cluster.local:9001',
     //uri: 'http://localhost:8999/login',
     encoding: null,
     headers: {
