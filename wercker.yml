@@ -26,7 +26,7 @@ push-to-releases-default:
         working-dir: /pipeline/source/
         username: $OKE_USERNAME
         password: $OKE_PASSWORD
-        repository: $OKE_REPOSITORY/$WERCKER_APPLICATION_NAME
+        repository: $OKE_REPOSITORY
         registry: $OKE_REGISTRY
 
 deploy-to-oke-default:

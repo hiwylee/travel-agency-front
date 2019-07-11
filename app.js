@@ -6,8 +6,8 @@ var logger = require('morgan');
 var request = require('request')
 
 var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
-//var login = require('./routes/login');
+// var usersRouter = require('./routes/users');
+// var login = require('./routes/login');
 
 var app = express();
 
@@ -30,14 +30,16 @@ app.post('/login', function(req, res) {
   console.log("req", JSON.stringify(req.body))
   const options = {
     method: 'POST',
-    //uri: 'http://ta-login.travel-agency.svc.cluster.local:9001/login',
+    // uri: 'http://ta-login.travel.svc.cluster.local:9001/login',
     uri: 'http://ta-login:9001/login',
+    //uri: 'http://localhost:8999/login',
     encoding: null,
     headers: {
       'Content-type': 'application/json'
     },
     body: JSON.stringify(req.body)
   };
+  console.log(options.uri);
   request(options, function(error, response, body) {
     console.log('request')
     console.log('statusCode:', response && response.statusCode)
