@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ta-front
+  labels:
+    run: ta-front
+spec:
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: ta-front
+    spec:
+      containers:
+      - image: icn.ocir.io/cnql8p76c3sq/travel-agency/travel-agency-front:latest
+        #imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
+        name: ta-front
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: ocirsecret

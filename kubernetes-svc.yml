@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ta-front
+spec:
+  type: LoadBalancer
+  selector:
+    run: ta-front
+  ports:
+    - port: 9004
+      targetPort: 8000
