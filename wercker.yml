@@ -50,7 +50,7 @@ deploy-to-oke:
         token: $KUBERNETES_AUTH_TOKEN
         
         insecure-skip-tls-verify: true
-        command:  delete namespace travel-agency --ignore-not-found=true ; echo step 1;  delete namespace $APP_FRONT_NAMESPACE --ignore-not-found=true  
+        command:  delete namespace $APP_FRONT_NAMESPACE --ignore-not-found=true  
         
     - script:
         name: wait to delete namespace
