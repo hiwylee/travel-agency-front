@@ -26,9 +26,9 @@ push-to-releases:
         username: $OKE_USERNAME
         password: $OKE_PASSWORD
         repository: $OKE_REPOSITORY/$WERCKER_APPLICATION_NAME
-        # repository: $DOCKER_REGISTRY/$DOCKER_REPO
+        #repository: $DOCKER_REGISTRY/$DOCKER_REPO
         registry: $OKE_REGISTRY
-        # registry: https://$DOCKER_REGISTRY/v2
+        #registry: https://$DOCKER_REGISTRY/v2
 
 deploy-to-oke:
   box:
