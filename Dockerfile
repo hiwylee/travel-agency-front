@@ -13,6 +13,7 @@ RUN npm install grunt -g && \
     npm install && \
     grunt build
 
-EXPOSE 8000
+EXPOSE 80
 
 CMD ["grunt", "serve"]
+
